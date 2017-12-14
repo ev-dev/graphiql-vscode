@@ -1,0 +1,36 @@
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+}
+
+type Query {
+  user(id: ID!): User
+  allUsers: [User!]!
+
+  post(id: ID!): Post
+  allPosts: [Post!]!
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User
+  createPost(title: String!, content: String!): Post
+
+  updateUser(id: ID, name: String, email: String): User
+  updatePost(id: ID, title: String, content: String): Post
+
+  deleteUser(id: ID!): User
+  deletePost(id: ID!): Post
+}
+
+type Schema {
+  query: Query
+  mutation: Mutation
+}
